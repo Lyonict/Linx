@@ -1,3 +1,24 @@
 #login-container{
     max-width: 30rem;
 }
+
+#pop-in{
+    z-index: -1;
+}
+
+.grey-filter{
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+#add-desc{
+    min-height: 200px;
+}
+
+#cards-container{
+    overflow-y: auto;
+}
+
+#add-card{
+    min-height: 200px;
+    order: 999999;
+}
