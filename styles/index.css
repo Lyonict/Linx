@@ -1,9 +1,25 @@
 #login-container{
+    background-image: url("../images/fond-login.jpg");
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+}
+
+#login-container > h1 {
+    font-size: 5rem;
+}
+
+#login-card{
     max-width: 30rem;
 }
 
-#pop-in{
+.hidden{
     z-index: -1;
+}
+
+.shown{
+    z-index: 1;
 }
 
 .grey-filter{
@@ -18,7 +34,17 @@
     overflow-y: auto;
 }
 
-#add-card{
-    min-height: 200px;
-    order: 999999;
+#add-btn{
+    width: 70px;
+    height: 70px;
+}
+
+/* New bootstrap classes */
+
+.h-10{
+    height: 10%;
+}
+
+.max-h-90{
+    max-height: 90%;
 }

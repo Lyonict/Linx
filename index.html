@@ -18,28 +18,36 @@
 
     <!-- FIREBASE -->
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js" defer></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js" defer></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js" defer></script>
 
+    <!-- BOOTSTRAP JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <!-- JAVASCRIPT -->
     <script src="./scripts/index.js" type="module" defer></script>
+    <script src="./scripts/login_validation.js" type="module" defer></script>
 </head>
 
-
+<!-- **************************** -->
+<!-- *********** BODY *********** -->
+<!-- **************************** -->
 
 <body class="max-vw-100 min-vh-100 d-flex flex-column align-items-center justify-content-center">
-    
-    <!-- <article id="login-container" class="d-flex flex-column align-items-center">
-        <h1>LINX</h1>
 
-        <div class="card shadow d-flex flex-row">
+    <!-- *********** LOGIN *********** -->
 
-            <form id="login_form" class="card-body row g-0 px-5 py-4 position-relative">
+    <article id="login-container" class="d-flex flex-column align-items-center justify-content-center position-absolute hidden">
+        <h1 class="text-light">LINX</h1>
+
+        <div id="login-card" class="card shadow d-flex flex-row">
+
+            <form id="login_form" class="card-body row g-0 px-5 py-4 position-relative needs-validation" novalidate>
                 <h3 class="card-title mb-3">Connectez vous</h3>
 
                 <h6 class="card-subtitle text-muted mb-3">Catchphrase</h6>
 
                 <div class="form-floating col-12 mb-3">
-                    <input type="email" class="form-control" id="login" placeholder="Votre adresse E-mail">
+                    <input type="email" class="form-control" id="login" placeholder="Votre adresse E-mail" required>
                     <label for="Email_login">Adresse E-mail</label>
                 </div>
 
@@ -51,16 +59,17 @@
                 <button id="login_btn" type="submit" class="btn btn-primary my-2">Connexion</button>
             </form>
         </div>
-    </article> -->
+    </article>
 
-    <!-- APPLICATION -->
+    <!-- *********** APPLICATION *********** -->
+
     <article class="vw-100 vh-100 position-relative bg-light">
         <!-- ADDING POP-IN -->
-        <section id="pop-in" class="position-fixed d-flex align-items-center justify-content-center w-100 h-100">
+        <section id="pop-in" class="position-fixed d-flex align-items-center justify-content-center w-100 h-100 hidden">
             <div class="grey-filter position-absolute w-100 h-100"></div>
 
             <div class="card d-flex flex-row">
-                <form id="login_form" class="card-body row g-0 px-5 py-4 position-relative">
+                <form id="add_card_form" class="card-body row g-0 px-5 py-4 position-relative">
                     <h3 class="card-title mb-3">Ajoutez une carte</h3>
     
                     <h6 class="card-subtitle text-muted mb-3">Catchphrase</h6>
@@ -89,42 +98,25 @@
             </div>
         </section>
 
-        <!-- REGULAR PAGE -->
-        <section class="bg-primary py-4">
-            <h1>Linx</h1>
-        </section>
-        
-        <section id="cards-container" class="row g-0 w-100">
-            <!-- <article class="col-lg-4 col-md-6 col-sm-12 p-3">
-                <div class="card h-100 p-3">
-                    <div class="d-flex">
-                        <h2 class="flex-grow-1">Truc</h2>
-                        <div class="ms-2">
-                            <button class="btn p-2">
-                                <i class="fa-solid fa-pen-to-square"></i>
-                            </button>
-                            <button class="btn p-2">
-                                <i class="fa-solid fa-trash"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <a href="www.google.fr">Lien</a>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi aliquam odit, tenetur, qui sapiente officiis quis praesentium esse a eligendi, sunt ipsum repellendus at voluptatem quos iure libero rerum consequatur.
-                    </p>
-                </div>
-            </article> -->
+        <!-- *********** REGULAR PAGE *********** -->
 
-            <article id="add-card" class="col-lg-4 col-md-6 col-sm-12 p-3     add-card-button">
-                <div class="card h-100 p-3 d-flex justify-content-center align-items-center">
-                    <button id="add-btn" class="btn fs-1">
-                        <i class="fa-solid fa-plus"></i>
-                    </button>
-                </div>
-            </article>
-        </section>
+        <header class="h-10 d-flex justify-content-center align-items-center bg-primary py-4">
+            <h1 class="text-light">Linx</h1>
+
+            <button id="logout-btn" class="btn btn-primary btn-outline-light position-absolute end-0 me-5"><i class="fa-solid fa-arrow-right-from-bracket"></i></button>
+        </header>
+        
+        <main id="cards-container" class="row g-0 max-h-90 w-100 bg-light">
+            <!-- Ajout de nouvelles cards ici -->
+        </main>
+
+        <button id="add-btn" class="position-fixed bottom-0 end-0 btn btn-lg btn-outline-primary rounded-circle m-5 p-0 fs-1"><i class="fa-solid fa-plus"></i></button>
     </article>
 </body>
+<!-- Bonton modify pour le futur -->
+<!-- <button class="btn modify-btn p-2">
+                            <i class="fa-solid fa-pen-to-square"></i>                        
+                        </button> -->
 
 
 
